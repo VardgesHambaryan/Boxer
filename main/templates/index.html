@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <!-- 
+    Boxer Template
+    http://www.templatemo.com/tm-446-boxer
+    -->
+    <meta charset="utf-8">
+    <title>Boxer - Software Landing Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- google font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+
+</head>
+<body>
+    <!-- start preloader -->
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+     </div>
+    <!-- end preloader -->
+    <!-- start navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Boxer</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#feature">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end navigation -->
+    <!-- start home -->
+    <section id="home">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+                        <h1 class="text-upper">{{ home.title }}</h1>
+                        <p class="tm-white">{{ home.text }}</p>
+                        <img src="{{ home.img.url }}" class="img-responsive" alt="home img">
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end home -->
+    <!-- start divider -->
+    <section id="divider">
+        <div class="container">
+            <div class="row">
+                {% for divider in dividers %}
+                <div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+                    <i class="{{ divider.icon }}"></i>
+                    <h3 class="text-uppercase">{{ divider.title }}</h3>
+                    <p>{{ divider.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- end divider -->
+
+    <!-- start feature -->
+    {% for feature in features %}
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+                    <h2 class="text-uppercase">{{ feature.title }}</h2>
+                    <p>{{ feature.text }}</p>
+                    <p><span><i class="{{ feature.icon1 }}"></i></span>{{ feature.point1 }}</p>
+                    <p><i class="{{ feature.icon2 }}"></i>{{ feature.point2 }}</p>
+                </div>
+                <div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+                    <img src="{{ feature.img.url }}" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <!-- end feature -->
+
+    <!-- start pricing -->
+    <section id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow bounceIn">
+                    <h2 class="text-uppercase">Our Pricing</h2>
+                </div>
+                {% for pricing in pricings %}
+                <div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+                    <div class="pricing text-uppercase">
+                        <div class="pricing-title">
+                            <h4>{{ pricing.name }}</h4>
+                            <p>${{ pricing.price }}</p>
+                            <small class="text-lowercase">monthly</small>
+                        </div>
+                        <ul>
+                            <li>{{ pricing.f1 }}</li>
+                            <li>{{ pricing.f2 }}</li>
+                            <li>{{ pricing.f3 }}</li>
+                            <li>{{ pricing.f4 }}</li>
+                        </ul>
+                        <button class="btn btn-primary text-uppercase">Sign up</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- end pricing -->
+
+    <!-- start download -->
+    <section id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+                    <h2 class="text-uppercase">{{download.title}}</h2>
+                    <p>{{download.text}} </p>
+                    <button class="btn btn-primary text-uppercase"><i class="fa fa-download"></i> Download</button>
+                </div>
+                <div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+                    <img src="{{download.img.url}}" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end download -->
+
+    <!-- start contact -->
+    <section id="contact">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <h2 class="text-uppercase">Contact Us</h2>
+                        <p>{{contacts.text}} </p>
+                        <address>
+                            <p><i class="fa fa-map-marker"></i>{{contacts.address}}</p>
+                            <p><i class="fa fa-phone"></i> {{contacts.phone1}} or {{contacts.phone2}}</p>
+                            <p><i class="fa fa-envelope-o"></i> {{contacts.email}}</p>
+                        </address>
+                    </div>
+                    <div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="contact-form">
+                            <form  method="post">{%csrf_token%}
+                                <div class="col-md-6">
+                                    <input type="text"name="name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email"name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text"name="subject" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control"name="message" placeholder="Message" rows="4"></textarea>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="submit" class="form-control text-uppercase" value="Send">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end contact -->   
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
